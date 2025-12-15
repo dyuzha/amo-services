@@ -1,0 +1,6 @@
+*/certs
+logs
+.logs
+.tokens
+nginx.conf
+.env

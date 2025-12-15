@@ -1,0 +1,52 @@
+services:
+  # pull_policy: always
+  nginx:
+    # image: openresty/openresty:alpine
+    build: ./nginx/
+    container_name: nginx
+    restart: unless-stopped
+
+    env_file:
+      - ./nginx/.env
+
+    ports:
+      - "443:443"
+
+    volumes:
+      - ./nginx/nginx.template.conf:/etc/nginx/nginx.conf.template:ro
+      - ./nginx/certs:/etc/nginx/cert:ro
+      - ./nginx/vars.list:/etc/nginx/vars.list:ro # Переменные для замены envsubst
+      - ./nginx/scripts/entrypoint.sh:/etc/nginx/entrypoint.sh:ro
+
+    environment:
+      TZ: Europe/Moscow
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "7"
+
+    # command: /bin/sh -c "envsubst "$(sed 's/.*/${&}/' vars.list | tr '\n' ' ')" < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && openresty -g 'daemon off;'"
+    command: ["/bin/sh", "/etc/nginx/entrypoint.sh"]
+
+  amo-gate:
+    image: dyuzha/rdesk-amo-sync:latest
+    container_name: rdesk-amo-sync
+    restart: unless-stopped
+
+    env_file:
+      - ./rdesk-amo-sync/.env
+
+    volumes:
+      - ./rdesk-amo-sync/.tokens:/.tokens:rw
+      - ./rdesk-amo-sync/.logs:/logs:rw
+
+    environment:
+      TZ: Europe/Moscow
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "7"
