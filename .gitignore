@@ -4,3 +4,4 @@ logs
 .tokens
 nginx.conf
 .env
+.prod.env
