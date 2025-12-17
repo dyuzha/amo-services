@@ -15,7 +15,7 @@ services:
     volumes:
       - ${SSL_FULLCHAIN_FILE}:/etc/ssl/fullchain.cert:ro
       - ${SSL_KEY_FILE}:/etc/ssl/cert.key:ro
-      - ./nginx/nginx.template.conf:/etc/nginx/nginx.conf.template:ro
+      - ${NGX_TEMPLATE_CONF}:/etc/nginx/nginx.conf.template:ro
       - ./nginx/vars.list:/etc/nginx/vars.list:ro # Переменные для замены envsubst
       - ./nginx/scripts/entrypoint.sh:/etc/nginx/entrypoint.sh:ro
 
