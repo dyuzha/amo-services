@@ -1,0 +1,83 @@
+[
+  {
+    "createdAt": "2020-09-14T12:18:00Z",
+    "name": "Михайлов Иван Петрович",
+    "birthday": "1950-12-01",
+    "phone": "81231234567",
+    "email": "",
+    "id": 185588,
+    "lead_id": 11642589,
+    "treatments": [
+      {
+        "item_id": 987654321,
+        "status": "set",
+        "action": "Консультация кардиолога",
+        "visit_date": "2020-09-19T10:00:00Z",
+        "pay": true,
+        "price": 850,
+        "paid": true
+      }
+    ],
+    "labs": [
+      {
+        "lab_item_id": 876543210,
+        "status": "cancel",
+        "lab": "Тиреотропный гормон",
+        "visit_date": "2020-09-19",
+        "pay": true,
+        "price": 1000,
+        "paid": false,
+        "treatment_item_id": 987654321
+      }
+    ],
+    "packets": [
+      {
+        "packet_id": 4321,
+        "packet": "Check-up",
+        "pay": true,
+        "price": 4000,
+        "paid": true,
+        "treatments": [
+          {
+            "item_id": 1234567890,
+            "status": "set",
+            "action": "Грязевые аппликации",
+            "visit_date": "2020-09-20T12:20:00Z"
+          },
+          {
+            "item_id": 1234567892,
+            "status": "set",
+            "action": "Грязевые аппликации 2.0",
+            "visit_date": "2020-09-21T12:20:00Z"
+          }
+        ]
+      }
+    ],
+    "complex": [
+      {
+        "complex_id": 1234,
+        "complex": "Комплекс Антистресс",
+        "pay": true,
+        "price": 8000,
+        "paid": true,
+        "treatments": [
+          {
+            "item_id": 1234567894,
+            "status": "done",
+            "action": "Массаж ручной",
+            "visit_date": "2020-09-25T14:00:00Z"
+          }
+        ],
+        "labs": [
+          {
+            "lab_item_id": 876543210,
+            "status": "set",
+            "lab": "Тромбиновое время",
+            "visit_date": "2020-09-25",
+            "treatment_item_id": null
+          }
+        ]
+      }
+    ]
+  }
+]
