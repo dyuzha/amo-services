@@ -1,0 +1,16 @@
+[Unit]
+Description=AMO Services (Podman Compose)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/amo-services
+ExecStart=/usr/bin/podman-compose up
+ExecStop=/usr/bin/podman-compose down
+User=amo-staff
+Group=amo-staff
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

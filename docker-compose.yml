@@ -51,5 +51,5 @@ services:
         max-size: "20m"
         max-file: "7"
 
-    # command: ["python", "main.py", "--mocked-lead-id"]
-    command: ["python", "main.py"]
+    command: ["python", "main.py", "--mocked-lead-id"]
+    # command: ["python", "main.py"]
